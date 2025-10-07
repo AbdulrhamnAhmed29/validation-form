@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <form class="form" id="registerForm">
+        <h1 class="task-title">Register</h1>
+
+        <!-- Name -->
+        <div class="flex-column">
+          <label>Full Name</label>
+        </div>
+        <div class="inputForm">
+          <input placeholder="Enter your Name" class="input" type="text" id="reg-name">
+        </div>
+        <p id="errorName" class="error"></p>
+
+        <!-- Email -->
+        <div class="flex-column">
+          <label>Email</label>
+        </div>
+        <div class="inputForm">
+          <input placeholder="Enter your Email" class="input" type="email" id="reg-email">
+        </div>
+        <p id="errorEmail" class="error"></p>
+
+        <!-- Password -->
+        <div class="flex-column">
+          <label>Password</label>
+        </div>
+        <div class="inputForm">
+          <input placeholder="Enter Password" class="input" type="password" id="reg-pass">
+        </div>
+        <p id="errorPass" class="error"></p>
+
+        <button type="submit" class="button-submit">Register</button>
+        <p class="p">Already have an account? <a href="login.html" class="span">Login</a></p>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js">
+
+  </script>
+</body>
+
+</html>

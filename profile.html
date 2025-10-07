@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <div class="form">
+        <h1 class="task-title">Profile</h1>
+        <p><strong>Name:</strong> <span id="p-name"></span></p>
+        <p><strong>Email:</strong> <span id="p-email"></span></p>
+        <button id="logoutBtn" class="button-submit">Logout</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("loggedUser"));
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("p-name").textContent = user.name;
+      document.getElementById("p-email").textContent = user.email;
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedUser");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <form class="form" id="loginForm">
+        <h1 class="task-title">Login</h1>
+
+        <!-- Email -->
+        <div class="flex-column">
+          <label>Email</label>
+        </div>
+        <div class="inputForm">
+          <input placeholder="Enter your Email" class="input" type="email" id="login-email">
+        </div>
+        <p id="errorEmail" class="error"></p>
+
+        <!-- Password -->
+        <div class="flex-column">
+          <label>Password</label>
+        </div>
+        <div class="inputForm">
+          <input placeholder="Enter Password" class="input" type="password" id="login-pass">
+        </div>
+        <p id="errorPass" class="error"></p>
+
+        <button type="submit" class="button-submit">Login</button>
+        <p class="p">Don't have an account? <a href="index.html" class="span">Register</a></p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let email = document.getElementById("login-email").value.trim();
+      let pass = document.getElementById("login-pass").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      let user = users.find(u => u.email === email && u.pass === pass);
+
+      if (!user) {
+        alert("Invalid email or password!");
+        return;
+      }
+
+      // save session
+      localStorage.setItem("loggedUser", JSON.stringify(user));
+      window.location.href = "profile.html";
+    });
+  </script>
+</body>
+
+</html>
